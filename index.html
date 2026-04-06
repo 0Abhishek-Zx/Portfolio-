@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhishek's Portfolio</title>
+
+  <!-- React CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-gray-100 transition-colors duration-300">
+
+  <div id="root" class="max-w-4xl mx-auto px-6 py-8"></div>
+
+<script type="text/babel">
+
+const projects = [
+  {
+    title: "Dynamic Game Review Web Application",
+    link: "http://phpajaxproject.infinityfreeapp.com/Web_pages/index.php",
+    description: "Full-stack app using PHP, MySQL, Apache, and AJAX. Users can add, edit, and review games with real-time updates."
+  },
+  {
+    title: "Web-Based Resume",
+    link: "https://0abhishek-zx.github.io/Web_Resume/",
+    description: "Responsive personal resume website using HTML and CSS Grid, optimized for mobile and desktop."
+  },
+  {
+    title: "Checkers Game",
+    link: "https://0abhishek-zx.github.io/ChessLiteJs/",
+    description: "Browser-based Checkers game using JavaScript, HTML, and CSS with OOP concepts for game logic."
+  },
+  {
+    title: "Babylon.js Animation Site",
+    link: "https://your-live-link.com",
+    description: "Website incorporating 3D animation using Babylon.js and JavaScript libraries."
+  },
+  {
+    title: "Gaming Channel Content",
+    link: "https://www.youtube.com/@Ambivert_04",
+    description: "Created short gaming videos using Filmora and GIMP with transitions, audio syncing, and thumbnails."
+  }
+];
+
+const ProjectCard = ({title, link, description}) => (
+  <div className="bg-white p-5 my-4 rounded-xl shadow hover:bg-blue-50 transition">
+    
+    <h3 className="text-xl font-semibold">{title}</h3>
+
+    {description && <p className="mt-2 text-gray-700">{description}</p>}
+
+    {link && 
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block mt-4 px-4 py-2 border-2 border-blue-500 text-blue-500 rounded-lg hover:bg-blue-500 hover:text-white transition"
+      >
+        Go Live
+      </a>
+    }
+
+  </div>
+);
+
+const App = () => {
+  return (
+    <div>
+      <h1 className="text-3xl font-bold border-b-2 pb-2 mb-6">
+        Abhishek's Portfolio
+      </h1>
+
+      <h2 className="text-xl font-semibold mb-4">
+        Projects
+      </h2>
+
+      {projects.map(p => <ProjectCard key={p.title} {...p} />)}
+    </div>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+
+</script>
+
+</body>
+</html>
