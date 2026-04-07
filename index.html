@@ -12,7 +12,7 @@
 </head>
 
 <body class="bg-gray-100 transition-colors duration-300">
-  <div id="root" class="max-w-4xl mx-auto px-6 py-8"></div>
+  <div id="root" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6"></div>
 
 <script type="text/babel">
 
@@ -27,42 +27,43 @@ const projects = [
     title: "Web-Based Resume",
     live: "https://0abhishek-zx.github.io/Web_Resume/",
     code: "https://github.com/0abhishek-zx/Web_Resume",
-    description: "Responsive personal resume website using HTML and CSS Grid, optimized for mobile and desktop."
+    description: "Responsive personal resume website using HTML and CSS Grid."
   },
   {
     title: "Checkers Game",
     live: "https://0abhishek-zx.github.io/ChessLiteJs/",
     code: "https://github.com/0abhishek-zx/ChessLiteJs",
-    description: "Browser-based Checkers game using JavaScript, HTML, and CSS with OOP concepts for game logic."
+    description: "Browser-based Checkers game using JavaScript and OOP concepts."
   },
   {
     title: "Babylon.js Animation Site",
     live: "https://0abhishek-zx.github.io/3DAnimationBabylon/",
     code: "https://github.com/0abhishek-zx/3DAnimationBabylon",
-    description: "Website incorporating 3D animation using Babylon.js and JavaScript libraries."
+    description: "Website with 3D animation using Babylon.js."
   },
   {
     title: "Gaming Channel Content",
     live: "https://www.youtube.com/@Ambivert_04",
     code: "",
-    description: "Created short gaming videos using Filmora and GIMP with transitions, audio syncing, and thumbnails."
+    description: "Created gaming videos with Filmora and GIMP."
   }
 ];
 
 const ProjectCard = ({title, live, code, description}) => (
-  <div className="bg-white p-5 my-4 rounded-xl shadow hover:bg-blue-50 transition">
+  <div className="bg-white p-5 rounded-xl shadow hover:bg-blue-50 transition flex flex-col justify-between">
     
-    <h3 className="text-xl font-semibold">{title}</h3>
+    <div>
+      <h3 className="text-lg sm:text-xl font-semibold">{title}</h3>
+      {description && <p className="mt-2 text-gray-600 text-sm sm:text-base">{description}</p>}
+    </div>
 
-    {description && <p className="mt-2 text-gray-700">{description}</p>}
-
-    <div className="flex gap-3 mt-4">
+    <div className="flex flex-wrap gap-3 mt-4">
       {live && 
         <a
           href={live}
           target="_blank"
           rel="noopener noreferrer"
-          className="px-4 py-2 border-2 border-blue-500 text-blue-500 rounded-lg hover:bg-blue-500 hover:text-white transition"
+          className="flex-1 sm:flex-none text-center px-4 py-2 border-2 border-blue-500 text-blue-500 rounded-lg hover:bg-blue-500 hover:text-white transition"
         >
           Live
         </a>
@@ -73,9 +74,9 @@ const ProjectCard = ({title, live, code, description}) => (
           href={code}
           target="_blank"
           rel="noopener noreferrer"
-          className="px-4 py-2 border-2 border-gray-700 text-gray-700 rounded-lg hover:bg-gray-700 hover:text-white transition"
+          className="flex-1 sm:flex-none text-center px-4 py-2 border-2 border-gray-700 text-gray-700 rounded-lg hover:bg-gray-700 hover:text-white transition"
         >
-          View Code
+          Code
         </a>
       }
     </div>
@@ -86,15 +87,18 @@ const ProjectCard = ({title, live, code, description}) => (
 const App = () => {
   return (
     <div>
-      <h1 className="text-3xl font-bold border-b-2 pb-2 mb-6 text-center">
+      <h1 className="text-2xl sm:text-3xl font-bold border-b-2 pb-2 mb-6 text-center">
         Abhishek's Portfolio
       </h1>
 
-      <h2 className="text-xl font-semibold mb-4">
+      <h2 className="text-lg sm:text-xl font-semibold mb-4">
         Projects
       </h2>
 
-      {projects.map(p => <ProjectCard key={p.title} {...p} />)}
+      {/* Responsive Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {projects.map(p => <ProjectCard key={p.title} {...p} />)}
+      </div>
     </div>
   );
 };
@@ -102,6 +106,4 @@ const App = () => {
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 
 </script>
-
-</body>
 </html>
