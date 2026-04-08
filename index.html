@@ -104,3 +104,25 @@ const App = () => {
             <span className="font-semibold">Email:</span> abhishek@example.com<br/>
             <span className="font-semibold">GitHub:</span> 
             <a href="https://github.com/0abhishek-zx" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline ml-1">
+              0abhishek-zx
+            </a>
+          </p>
+        </div>
+      </div>
+
+      {/* Projects Section */}
+      <h2 className="text-lg sm:text-xl font-semibold mb-4">
+        Projects
+      </h2>
+
+      <div className="flex flex-col gap-6">
+        {projects.map(p => <ProjectCard key={p.title} {...p} />)}
+      </div>
+    </div>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+
+</script>
+</html>
